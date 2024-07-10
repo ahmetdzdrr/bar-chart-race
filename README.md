@@ -39,8 +39,9 @@ The code in the notebook downloads stock data for three selected tickers (e.g., 
 
 
         import yfinance as yf
-        tickers = ['AAPL', 'MSFT', 'GOOGL']
-        data = yf.download(tickers, start='2012-01-01', end='2024-01-01')
+        from datetime import datetime
+        tickers = ['AAPL', 'NVDA', 'GOOGL', 'TSLA']
+        data = yf.download(tickers, start='2012-01-01', end=datetime.now())
 
 2. Process the Data
 
