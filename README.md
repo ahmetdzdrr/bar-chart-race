@@ -10,7 +10,6 @@ This repository contains a project that visualizes stock prices using a bar char
   - [Download Stock Data](#download-stock-data)
   - [Process the Data](#process-the-data)
   - [Create Bar Chart Race](#create-bar-chart-race)
-  - [Save the Animation](#save-the-animation)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -35,6 +34,7 @@ You can install these libraries using pip:
 ## Usage
 
 1. Download Stock Data
+   
 The code in the notebook downloads stock data for three selected tickers (e.g., AAPL, MSFT, GOOGL) for the years 2012-2024 using the yfinance library.
 
 
@@ -43,6 +43,7 @@ The code in the notebook downloads stock data for three selected tickers (e.g., 
         data = yf.download(tickers, start='2012-01-01', end='2024-01-01')
 
 2. Process the Data
+
 The downloaded data is processed to calculate the monthly closing prices for each stock.
 
         df_combined = data['Adj Close'].resample('M').last()
@@ -52,6 +53,7 @@ The downloaded data is processed to calculate the monthly closing prices for eac
         df_combined = df_combined.groupby(["Year", "Month"])[['AAPL', 'MSFT', 'GOOGL']].last().reset_index()
 
 3. Create Bar Chart Race
+   
 The processed data is used to create a bar chart race animation using the bar_chart_race library.
 
         import bar_chart_race as bcr
