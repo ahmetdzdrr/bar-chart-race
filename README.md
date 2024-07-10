@@ -47,11 +47,15 @@ The code in the notebook downloads stock data for three selected tickers (e.g., 
 
 The downloaded data is processed to calculate the monthly closing prices for each stock.
 
+        import pandas as pd
         df_combined = data['Adj Close'].resample('M').last()
         df_combined = df_combined.reset_index()
         df_combined['Year'] = df_combined['Date'].dt.year
         df_combined['Month'] = df_combined['Date'].dt.month
-        df_combined = df_combined.groupby(["Year", "Month"])[['AAPL', 'MSFT', 'GOOGL']].last().reset_index()
+        df_combined = df_combined.groupby(["Year", "Month"])[tickers].last().reset_index()
+        df_combined['Date'] = pd.to_datetime(df_combined[['Year', 'Month']].assign(DAY=1))
+        df_combined = df_combined[['Date', 'AAPL', 'NVDA', 'GOOGL', 'TSLA']]
+        df_combined.set_index('Date', inplace=True)
 
 3. Create Bar Chart Race
    
@@ -65,7 +69,10 @@ The processed data is used to create a bar chart race animation using the bar_ch
 
 
 
-https://github.com/ahmetdzdrr/bar-chart-race/assets/117534684/556d6db9-a8ed-463f-84f6-13b862c6db2c
+
+https://github.com/ahmetdzdrr/bar-chart-race/assets/117534684/fd817f17-4a82-4b2a-b3c1-6b7569827352
+
+
 
 
 
