@@ -15,7 +15,7 @@ This repository contains a project that visualizes stock prices using a bar char
 
 ## Project Structure
 
-- `bcr.ipynb`: Jupyter Notebook containing the code for downloading stock data, processing it, and creating the bar chart race animation.
+- `bcr.py`: Jupyter Notebook containing the code for downloading stock data, processing it, and creating the bar chart race animation.
 - `README.md`: This file, providing an overview of the project and instructions for use.
 
 ## Requirements
